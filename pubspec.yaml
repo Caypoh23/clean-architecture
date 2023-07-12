@@ -1,4 +1,4 @@
-name: clean_architecture
+name: architecture
 description: TDD Clean Architecture for Flutter.
 
 publish_to: 'none' 
