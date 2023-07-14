@@ -67,12 +67,13 @@ void main() {
     final tNumberTriviaModel =
         NumberTriviaModel(text: 'test trivia', number: tNumber);
     final NumberTrivia tNumberTrivia = tNumberTriviaModel;
-    test('should check if the device is online', () async {
+
+    test('should check if the device is online', () {
       //arrange
       when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
-      //act
+      // act
       repository.getConcreteNumberTrivia(tNumber);
-      //assert
+      // assert
       verify(mockNetworkInfo.isConnected);
     });
 
