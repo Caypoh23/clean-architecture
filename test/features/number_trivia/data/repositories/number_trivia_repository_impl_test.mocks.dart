@@ -5,11 +5,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:architecture/core/platform/netword_info.dart' as _i6;
-import 'package:architecture/features/number_trivia/data/data_sources/number_trivia_local_data_source.dart'
-    as _i5;
+import 'package:architecture/core/network/netword_info.dart' as _i3;
 import 'package:architecture/features/number_trivia/data/data_sources/number_trivia_remote_data_source.dart'
-    as _i3;
+    as _i5;
 import 'package:architecture/features/number_trivia/data/models/number_trivia_model.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
@@ -36,11 +34,26 @@ class _FakeNumberTriviaModel_0 extends _i1.SmartFake
         );
 }
 
+/// A class which mocks [NetworkInfo].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNetworkInfo extends _i1.Mock implements _i3.NetworkInfo {
+  MockNetworkInfo() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<bool> get isConnected => (super.noSuchMethod(
+        Invocation.getter(#isConnected),
+        returnValue: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
+}
+
 /// A class which mocks [NumberTriviaRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockNumberTriviaRemoteDataSource extends _i1.Mock
-    implements _i3.NumberTriviaRemoteDataSource {
+    implements _i5.NumberTriviaRemoteDataSource {
   MockNumberTriviaRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
@@ -79,54 +92,45 @@ class MockNumberTriviaRemoteDataSource extends _i1.Mock
       ) as _i4.Future<_i2.NumberTriviaModel>);
 }
 
-/// A class which mocks [NumberTriviaLocalDataSource].
+/// A class which mocks [NumberTriviaRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockNumberTriviaLocalDataSource extends _i1.Mock
-    implements _i5.NumberTriviaLocalDataSource {
-  MockNumberTriviaLocalDataSource() {
+class MockNumberTriviaRemoteDataSourceForTest extends _i1.Mock
+    implements _i5.NumberTriviaRemoteDataSource {
+  MockNumberTriviaRemoteDataSourceForTest() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.NumberTriviaModel> getLastNumberTrivia() =>
+  _i4.Future<_i2.NumberTriviaModel> getConcreteNumberTrivia(int? number) =>
       (super.noSuchMethod(
         Invocation.method(
-          #getLastNumberTrivia,
+          #getConcreteNumberTrivia,
+          [number],
+        ),
+        returnValue:
+            _i4.Future<_i2.NumberTriviaModel>.value(_FakeNumberTriviaModel_0(
+          this,
+          Invocation.method(
+            #getConcreteNumberTrivia,
+            [number],
+          ),
+        )),
+      ) as _i4.Future<_i2.NumberTriviaModel>);
+  @override
+  _i4.Future<_i2.NumberTriviaModel> getRandomNumberTrivia() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getRandomNumberTrivia,
           [],
         ),
         returnValue:
             _i4.Future<_i2.NumberTriviaModel>.value(_FakeNumberTriviaModel_0(
           this,
           Invocation.method(
-            #getLastNumberTrivia,
+            #getRandomNumberTrivia,
             [],
           ),
         )),
       ) as _i4.Future<_i2.NumberTriviaModel>);
-  @override
-  _i4.Future<void> cacheNumberTrivia(_i2.NumberTriviaModel? triviaToCache) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #cacheNumberTrivia,
-          [triviaToCache],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
-}
-
-/// A class which mocks [NetworkInfo].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockNetworkInfo extends _i1.Mock implements _i6.NetworkInfo {
-  MockNetworkInfo() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  _i4.Future<bool> get isConnected => (super.noSuchMethod(
-        Invocation.getter(#isConnected),
-        returnValue: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
 }
