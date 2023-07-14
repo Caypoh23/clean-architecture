@@ -26,9 +26,10 @@ void main() {
           .thenAnswer((_) async => tConnectivityResult);
       // act
       final result = await networkInfoImpl.isConnected;
+      final expected = tConnectivityResult != ConnectivityResult.none;
       // assert
       verify(mockNetworkInfo.checkConnectivity());
-      expect(result, true);
+      expect(result, expected);
     });
   });
 }
