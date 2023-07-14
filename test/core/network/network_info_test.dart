@@ -28,7 +28,7 @@ void main() {
       final result = await networkInfoImpl.isConnected;
       // assert
       verify(mockNetworkInfo.checkConnectivity());
-      expect(result, tConnectivityResult);
+      expect(result, true);
     });
   });
 }
