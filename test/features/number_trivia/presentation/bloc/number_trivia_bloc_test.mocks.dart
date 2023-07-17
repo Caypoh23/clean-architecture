@@ -3,11 +3,19 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
+// Dart imports:
 import 'dart:async' as _i5;
 
+// Package imports:
+import 'package:dartz/dartz.dart' as _i3;
+import 'package:mockito/mockito.dart' as _i1;
+
+// Project imports:
 import 'package:architecture/core/error/failture.dart' as _i6;
 import 'package:architecture/core/usecases/usecase.dart' as _i9;
 import 'package:architecture/core/utils/input_converter.dart' as _i10;
+
 import 'package:architecture/features/number_trivia/domain/entities/number_trivia.dart'
     as _i7;
 import 'package:architecture/features/number_trivia/domain/repositories/number_trivia_repository.dart'
@@ -16,8 +24,6 @@ import 'package:architecture/features/number_trivia/domain/usecases/get_concrete
     as _i4;
 import 'package:architecture/features/number_trivia/domain/usecases/get_random_number_trivia.dart'
     as _i8;
-import 'package:dartz/dartz.dart' as _i3;
-import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
